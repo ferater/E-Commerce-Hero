@@ -1,0 +1,88 @@
+//body
+$body-height: 100%;
+$body-font-family: "Roboto", sans-serif;
+$body-bg-color: var(--primary);
+
+//container
+$container-width: 72rem;
+$container-height: 44rem;
+$container-padding-y: 1.75rem;
+$container-padding-x: 6.25rem;
+$container-bg-color: var(--surface);
+$container-border-radius: 1.5rem;
+$container-box-shadow: 0px 4px 24px rgba(#000000, 0.5);
+//container before (bottom-right corner circles)
+$right-corner-circle-width: calc($container-width / 3);
+$right-corner-circle-border-width: 2rem;
+//header & menu
+$header-height: 2.5rem;
+//brand
+$brand-text-weight: 700;
+$brand-text-size: 2rem;
+$brand-text-line-height: 2.5rem;
+$brand-text-color: var(--on-surface);
+//menu
+$menu-item-space: 2.5rem;
+$menu-link-text-weight: 400;
+$menu-link-text-size: 1rem;
+$menu-link-text-line-heigth: 1.1875rem;
+$menu-link-text-color: var(--on-surface);
+//active menu item
+$menu-active-link-text-color: var(--primary);
+$menu-active-link-bottom-line-width: 100%;
+$menu-active-link-bottom-line-height: 0.25rem;
+$menu-active-link-bottom-line-bg-color: var(--primary);
+$menu-active-link-bottom-line-position-bottom: -0.5rem;
+$transition-time: 0.2s;
+//login button
+$login-button-border-color: var(--on-surface);
+$login-button-hover-border-color: var(--primary);
+//content
+$content-width: 100%;
+$content-height: 100%;
+$content-padding-top: 8rem;
+//content bg text
+$content-bg-text-content: "AI Mouse";
+$content-bg-text-wight: 400;
+$content-bg-text-size: 11.25rem;
+$content-bg-text-line-height: 12rem;
+$content-bg-text-color: var(--primary);
+$content-bg-text-opacity: 0.05;
+//product header
+$product-header-text-weight: 400;
+$product-header-text-size: 2rem;
+$product-header-text-line-height: 2.5rem;
+$product-header-text-color: var(--on-surface);
+//add to cart button
+$add-tocart-btn-bg-color: var(--primary);
+$add-tocart-btn-text-icon-space: 0.5rem;
+
+//footer
+$footer-height: $header-height;
+//prev next product buttons
+$prev-next-button-icon-size: 1.5rem;
+//page info
+$page-info-text-weight: 500;
+$page-info-active-page-color: var(--primary);
+
+//page selectors
+$page-selector-width: 1rem;
+$page-selector-circle-space: 0.25rem;
+$page-selector-circle-width: 1px;
+$page-selector-circle-color: var(--on-surface);
+$page-selector-circle-actve-bg-color: var(--primary);
+
+//decoration lines
+$decoration-line-width: 19rem;
+$decoration-line-height: 0.75rem;
+$decoration-line-bg-color: lighten(
+    $color: $surface,
+    $amount: 15,
+);
+$decoration-line-before-bg-color: var(--primary);
+
+// button
+$button-height: 2.25rem;
+$button-padding-y: 0;
+$button-padding-x: 2.5rem;
+$button-border-color: transparent;

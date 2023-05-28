@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100&display=swap");
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  --primary: #94792c;
+  --surface: #2b2b2b;
+  --on-surface: #ffffff;
+}
+
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--primary);
+}
+body .container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.container {
+  width: 72rem;
+  height: 44rem;
+  padding: 1.75rem 6.25rem;
+  background-color: var(--surface);
+  border-radius: 1.5rem;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.container .header {
+  height: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .header .brand .brand-text {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  color: var(--on-surface);
+  text-transform: uppercase;
+}
+.container .header .menu nav .navigation {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.container .header .menu nav .navigation .navigation-item {
+  position: relative;
+}
+.container .header .menu nav .navigation .navigation-item.active .navigation-link .navigation-link-text {
+  color: var(--primary);
+}
+.container .header .menu nav .navigation .navigation-item:not(:last-child)::after {
+  content: "";
+  width: 100%;
+  height: 0.25rem;
+  background-color: var(--primary);
+  position: absolute;
+  bottom: -1.5rem;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+.container .header .menu nav .navigation .navigation-item:hover::after, .container .header .menu nav .navigation .navigation-item.active::after {
+  bottom: -0.5rem;
+  opacity: 1;
+  visibility: visible;
+}
+.container .header .menu nav .navigation .navigation-item .navigation-link .navigation-link-text {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  color: var(--on-surface);
+}
+.container .header .menu nav .navigation .navigation-item .login-btn {
+  border-color: var(--on-surface);
+  transition: border-color 0.2s linear;
+}
+.container .header .menu nav .navigation .navigation-item .login-btn:hover {
+  border-color: var(--primary);
+}
+.container .content {
+  width: 100%;
+  height: 100%;
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  /* translate: 0 -150%; */
+  /* margin-bottom: 20%; */
+}
+.container .content .add-to-cart-btn {
+  background-color: var(--primary);
+  gap: 0.5rem;
+}
+.container .content .product-name {
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  color: var(--on-surface);
+}
+.container .content::before {
+  content: "AI Mouse";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary);
+  font-weight: 400;
+  font-size: 11.25rem;
+  line-height: 12rem;
+  opacity: 0.05;
+  z-index: -1;
+}
+.container .footer {
+  width: 59.5rem;
+  height: 2.5rem;
+  color: var(--on-surface);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 1.75rem;
+}
+.container .footer .footer-navigation {
+  display: flex;
+  align-items: center;
+}
+.container .footer .footer-navigation .arrow {
+  font-size: 1.5rem;
+  transition: scale 0.2s ease;
+  cursor: pointer;
+}
+.container .footer .footer-navigation .arrow:hover {
+  scale: 1.35;
+}
+.container .footer .page-count span {
+  font-weight: 500;
+}
+.container .footer .page-count span:first-child {
+  color: var(--primary);
+}
+.container::before {
+  content: "";
+  width: 24rem;
+  height: 24rem;
+  background-color: #262626;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2rem var(--surface), 0 0 0 4rem #2e2e2e;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  translate: 35% 50%;
+  z-index: -1;
+}
+.container .page-selectors {
+  width: 1rem;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 6.25rem;
+}
+.container .page-selectors .page-selector {
+  width: 1rem;
+  height: 1rem;
+  background-color: transparent;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+.container .page-selectors .page-selector::after {
+  content: "";
+  inset: -0.25rem;
+  border: 1px solid var(--on-surface);
+  border-radius: inherit;
+  position: absolute;
+}
+.container .page-selectors .page-selector.active {
+  background-color: var(--primary);
+}
+.container .decoration-lines {
+  width: 19rem;
+  height: 0.75rem;
+  background-color: #515151;
+  border-radius: 0.75rem;
+  position: absolute;
+}
+.container .decoration-lines::before, .container .decoration-lines::after {
+  content: "";
+  height: inherit;
+  border-radius: inherit;
+  position: absolute;
+  bottom: -2.25rem;
+}
+.container .decoration-lines::before {
+  width: 7.6rem;
+  background-color: var(--primary);
+  left: 2.375rem;
+}
+.container .decoration-lines::after {
+  width: 3.8rem;
+  background-color: #515151;
+  right: 3rem;
+}
+.container .decoration-lines.decoration-line-1 {
+  top: 30%;
+  left: 0;
+  translate: -50%;
+}
+.container .decoration-lines.decoration-line-2 {
+  top: 55%;
+  right: 0;
+  translate: 50%;
+}
+
+.btn {
+  height: 2.25rem;
+  padding: 0 2.5rem;
+  border: 1px solid transparent;
+  border-radius: 1.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: scale 0.1s linear;
+  cursor: pointer;
+}
+.btn:active {
+  scale: 0.99;
+}/*# sourceMappingURL=style.css.map */
