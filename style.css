@@ -20,7 +20,7 @@ body {
 }
 
 html {
-  font-size: 1vw;
+  font-size: 0.9vw;
 }
 
 body {
@@ -47,11 +47,11 @@ body .container {
   overflow: hidden;
 }
 .container .header {
+  width: 59.5rem;
   height: 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
 }
 .container .header .brand .brand-text {
   font-weight: 700;
@@ -60,18 +60,18 @@ body .container {
   color: var(--on-surface);
   text-transform: uppercase;
 }
-.container .header .menu nav .navigation {
+.container .header nav .menu .navigation {
   display: flex;
   align-items: center;
   gap: 2.5rem;
 }
-.container .header .menu nav .navigation .navigation-item {
+.container .header nav .menu .navigation .navigation-item {
   position: relative;
 }
-.container .header .menu nav .navigation .navigation-item.active .navigation-link .navigation-link-text {
+.container .header nav .menu .navigation .navigation-item.active .navigation-link .navigation-link-text {
   color: var(--primary);
 }
-.container .header .menu nav .navigation .navigation-item:not(:last-child)::after {
+.container .header nav .menu .navigation .navigation-item:not(:last-child)::after {
   content: "";
   width: 100%;
   height: 0.25rem;
@@ -83,22 +83,22 @@ body .container {
   visibility: hidden;
   transition: all 0.2s ease;
 }
-.container .header .menu nav .navigation .navigation-item:hover::after, .container .header .menu nav .navigation .navigation-item.active::after {
+.container .header nav .menu .navigation .navigation-item:hover::after, .container .header nav .menu .navigation .navigation-item.active::after {
   bottom: -0.5rem;
   opacity: 1;
   visibility: visible;
 }
-.container .header .menu nav .navigation .navigation-item .navigation-link .navigation-link-text {
+.container .header nav .menu .navigation .navigation-item .navigation-link .navigation-link-text {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.1875rem;
   color: var(--on-surface);
 }
-.container .header .menu nav .navigation .navigation-item .login-btn {
+.container .header nav .menu .navigation .navigation-item .login-btn {
   border-color: var(--on-surface);
   transition: border-color 0.2s linear;
 }
-.container .header .menu nav .navigation .navigation-item .login-btn:hover {
+.container .header nav .menu .navigation .navigation-item .login-btn:hover {
   border-color: var(--primary);
 }
 .container main {
@@ -200,7 +200,6 @@ body .container {
 }
 .container .page-selectors {
   width: 1rem;
-  height: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;

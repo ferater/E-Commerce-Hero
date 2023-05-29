@@ -14,28 +14,9 @@ const products = [
   },
 ];
 
-//define index
-let index = 0;
-
-//select content container
-const contentContainer = document.querySelector("main");
-//select prev - next buttons
-const navArrows = document.querySelectorAll(".nav-arrow ");
-
-navArrows.forEach((arrow) => {
-  arrow.onclick = () => {
-    if (arrow.classList.contains("prev-arrow")) {
-      index -= 1;
-      if (index < 0) index = products.length - 1;
-    } else {
-      index += 1;
-    }
-    const currentIndex = Math.abs(index % products.length);
-    setContent(currentIndex);
-  };
-});
-const setContent = (currenntIndex) => {
-  contentContainer.innerHTML = products
+///////////////////////////////////////////////////////////////////////////////////////////
+const createContent = () => {
+  mainDiv.innerHTML = products
     .map((product) => {
       return `
     <div class="content">
@@ -51,10 +32,49 @@ const setContent = (currenntIndex) => {
     `;
     })
     .join("");
-  const content = contentContainer.querySelector(".content");
-  contentContainer.style.width = `${(products.length - 1) * content.scrollWidth}`
-  contentContainer.style.translate = ` ${
-    (currenntIndex * content.scrollWidth) * -1
-  }px 0px`;
 };
-setContent();
+///////////////////////////////////////////////////////////////////////////////////////////
+const createPageSelectors = () => {
+  pageSelectorContainer.innerHTML = products
+    .map((product, index) => {
+      return `<div class="page-selector"></div>`;
+    })
+    .join("");
+};
+///////////////////////////////////////////////////////////////////////////////////////////
+const createHtmlElements = () => {
+  createContent();
+  createPageSelectors();
+};
+window.addEventListener("load", createHtmlElements);
+///////////////////////////////////////////////////////////////////////////////////////////
+
+//define index
+let index = 0;
+let currentIndex = 0;
+
+//select content container
+const mainDiv = document.querySelector("main");
+//select prev - next buttons
+const navigationArrows = document.querySelectorAll(".nav-arrow ");
+//select page selector container
+const pageSelectorContainer = document.querySelector(".page-selectors");
+//select page selectors
+const pageSelectors = pageSelectorContainer.querySelectorAll(".page-selector")
+console.log(pageSelectors);
+
+navigationArrows.forEach((arrow) => {
+  arrow.onclick = () => {
+    if (arrow.classList.contains("prev-arrow")) {
+      index -= 1;
+      if (index < 0) index = products.length - 1;
+    } else {
+      index += 1;
+    }
+    currentIndex = Math.abs(index % products.length);
+    console.log(currentIndex);
+  };
+});
+// mainDiv.style.translate = ` ${
+//   currenntIndex * content.scrollWidth * -1
+// }px 0px`;

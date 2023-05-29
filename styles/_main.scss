@@ -3,7 +3,7 @@
 //common css
 ///////////////////////
 html {
-    font-size: 1vw;
+    font-size: .9vw;
 }
 body {
     height: $body-height;
@@ -29,11 +29,11 @@ body {
     position: relative;
     overflow: hidden;
     & .header {
+        width: calc($container-width - ($container-padding-x * 2));
         height: $header-height;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        z-index: 1;
         & .brand {
             & .brand-text {
                 font-weight: $brand-text-weight;
@@ -43,8 +43,8 @@ body {
                 text-transform: uppercase;
             }
         }
-        & .menu {
-            & nav {
+        & nav {
+            & .menu {
                 & .navigation {
                     display: flex;
                     align-items: center;
@@ -99,9 +99,8 @@ body {
         }
     }
     & main {
-        //main width calculaed by js
         display: flex;
-        transition: translate .3s linear;
+        transition: translate 0.3s linear;
         & .content {
             width: $content-width;
             height: calc($container-height - $header-height - $footer-height);
@@ -183,7 +182,7 @@ body {
             }
         }
     }
-
+//bottom right corner circles
     &::before {
         content: "";
         width: $right-corner-circle-width;
@@ -200,7 +199,6 @@ body {
     }
     & .page-selectors {
         width: $page-selector-width;
-        height: calc($page-selector-width * 5);
         display: flex;
         flex-direction: column;
         align-items: center;
