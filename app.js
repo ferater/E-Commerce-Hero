@@ -15,7 +15,7 @@ const products = [
 ];
 
 //define index
-let index = 0;
+let productIndex = 0;
 let currentIndex = 0;
 //select content container
 const mainDiv = document.querySelector("main");
@@ -55,19 +55,23 @@ pageSelectorContainer.innerHTML = products
 navigationArrows.forEach((arrow) => {
   arrow.onclick = () => {
     if (arrow.classList.contains("prev-arrow")) {
-      index -= 1;
-      if (index < 0) index = products.length - 1;
+      productIndex -= 1;
+      if (productIndex < 0) productIndex = products.length - 1;
     } else {
-      index += 1;
+      productIndex += 1;
     }
-    currentIndex = Math.abs(index % products.length);
-    slideContent()
+    currentIndex = Math.abs(productIndex % products.length);
+    slideContent(currentIndex);
   };
 });
-function slideContent(){
-  mainDiv.style.translate = `${currentIndex * (100 / products.length) * -1}% 0`
+function slideContent(index) {
+  mainDiv.style.translate = `${index * (100 / products.length) * -1}% 0`;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 //select page selectors
 const pageSelectors = pageSelectorContainer.querySelectorAll(".page-selector");
-console.log(pageSelectors);
+pageSelectors.forEach((selector, index) => {
+  selector.addEventListener("click", function () {
+    slideContent(index);
+  });
+});
