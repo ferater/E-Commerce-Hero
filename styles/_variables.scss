@@ -1,7 +1,7 @@
 //body
 $body-height: 100%;
 $body-font-family: "Roboto", sans-serif;
-$body-bg-color: var(--primary);
+$body-bg-color: var(--surface);
 
 //container
 $container-width: 72rem;
@@ -38,9 +38,9 @@ $transition-time: 0.2s;
 $login-button-border-color: var(--on-surface);
 $login-button-hover-border-color: var(--primary);
 //content
-$content-width: 100%;
+$content-width: calc($container-width - ($container-padding-x * 2));
 $content-height: 100%;
-$content-padding-top: 1rem;
+$content-padding-top: 5rem;
 //content bg text
 $content-bg-text-content: "AI Mouse";
 $content-bg-text-wight: 400;
@@ -48,6 +48,9 @@ $content-bg-text-size: 11.25rem;
 $content-bg-text-line-height: 12rem;
 $content-bg-text-color: var(--primary);
 $content-bg-text-opacity: 0.05;
+//product image
+$product-image-width: 25rem;
+$product-image-height: auto;
 //product header
 $product-header-text-weight: 400;
 $product-header-text-size: 2rem;

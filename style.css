@@ -26,7 +26,7 @@ html {
 body {
   height: 100%;
   font-family: "Roboto", sans-serif;
-  background-color: var(--primary);
+  background-color: var(--surface);
 }
 body .container {
   position: absolute;
@@ -51,6 +51,7 @@ body .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
 }
 .container .header .brand .brand-text {
   font-weight: 700;
@@ -100,41 +101,45 @@ body .container {
 .container .header .menu nav .navigation .navigation-item .login-btn:hover {
   border-color: var(--primary);
 }
-.container .content {
-  width: 100%;
-  height: 100%;
-  padding-top: 1rem;
+.container main {
+  display: flex;
+  transition: translate 0.3s linear;
+}
+.container main .content {
+  width: 59.5rem;
+  height: 39rem;
+  padding-top: 5rem;
   padding-bottom: 2.5rem;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
+  justify-content: space-around;
 }
-.container .content .product-image {
-  width: 60%;
+.container main .content .product-image {
+  width: 25rem;
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.container .content .product-image img {
-  width: 75%;
-  height: auto;
+.container main .content .product-image img {
+  width: inherit;
+  height: inherit;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.container .content .add-to-cart-btn {
+.container main .content .add-to-cart-btn {
   background-color: var(--primary);
   gap: 0.5rem;
 }
-.container .content .product-name {
+.container main .content .product-name {
   font-weight: 400;
   font-size: 2rem;
   line-height: 2.5rem;
   color: var(--on-surface);
 }
-.container .content::before {
+.container main .content::before {
   content: "AI Mouse";
   position: absolute;
   inset: 0;
@@ -152,12 +157,15 @@ body .container {
   width: 59.5rem;
   height: 2.5rem;
   color: var(--on-surface);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: absolute;
   bottom: 1.75rem;
   left: 6.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .container .footer .footer-navigation {
   display: flex;
@@ -219,39 +227,39 @@ body .container {
 .container .page-selectors .page-selector.active {
   background-color: var(--primary);
 }
-.container .decoration-lines {
+.container .decorations .decoration-lines {
   width: 19rem;
   height: 0.75rem;
   background-color: #515151;
   border-radius: 0.75rem;
   position: absolute;
 }
-.container .decoration-lines::before, .container .decoration-lines::after {
+.container .decorations .decoration-lines::before, .container .decorations .decoration-lines::after {
   content: "";
   height: inherit;
   border-radius: inherit;
   position: absolute;
   bottom: -2.25rem;
 }
-.container .decoration-lines::before {
+.container .decorations .decoration-lines::before {
   width: 7.6rem;
   background-color: var(--primary);
   left: 2.375rem;
 }
-.container .decoration-lines::after {
+.container .decorations .decoration-lines::after {
   width: 3.8rem;
   background-color: #515151;
   right: 3rem;
 }
-.container .decoration-lines.decoration-line-1 {
+.container .decorations .decoration-lines.decoration-line-1 {
   top: 30%;
   left: 0;
-  translate: -50%;
+  translate: -25%;
 }
-.container .decoration-lines.decoration-line-2 {
-  top: 55%;
+.container .decorations .decoration-lines.decoration-line-2 {
+  top: 58%;
   right: 0;
-  translate: 50%;
+  translate: 20%;
 }
 
 .btn {

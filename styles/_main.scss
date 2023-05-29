@@ -33,6 +33,7 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        z-index: 1;
         & .brand {
             & .brand-text {
                 font-weight: $brand-text-weight;
@@ -97,64 +98,70 @@ body {
             }
         }
     }
-    & .content {
-        width: $content-width;
-        height: $content-height;
-        padding-top: $content-padding-top;
-        padding-bottom: $footer-height;
+    & main {
+        //main width calculaed by js
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-        & .product-image {
-            width: 60%;
-            height: auto;
+        transition: translate .3s linear;
+        & .content {
+            width: $content-width;
+            height: calc($container-height - $header-height - $footer-height);
+            padding-top: $content-padding-top;
+            padding-bottom: $footer-height;
+            position: relative;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            & img {
-                width: 75%;
-                height: auto;
-                object-fit: cover;
+            justify-content: space-around;
+            & .product-image {
+                width: $product-image-width;
+                height: $product-image-height;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                & img {
+                    width: inherit;
+                    height: inherit;
+                    object-fit: cover;
+                }
             }
-        }
-        & .add-to-cart-btn {
-            background-color: $add-tocart-btn-bg-color;
-            gap: $add-tocart-btn-text-icon-space;
-        }
-        & .product-name {
-            font-weight: $product-header-text-weight;
-            font-size: $product-header-text-size;
-            line-height: $product-header-text-line-height;
-            color: $product-header-text-color;
-        }
-        //background text
-        &::before {
-            content: $content-bg-text-content;
-            position: absolute;
-            inset: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: $content-bg-text-color;
-            font-weight: $content-bg-text-wight;
-            font-size: $content-bg-text-size;
-            line-height: $content-bg-text-line-height;
-            opacity: $content-bg-text-opacity;
-            z-index: -1;
+            & .add-to-cart-btn {
+                background-color: $add-tocart-btn-bg-color;
+                gap: $add-tocart-btn-text-icon-space;
+            }
+            & .product-name {
+                font-weight: $product-header-text-weight;
+                font-size: $product-header-text-size;
+                line-height: $product-header-text-line-height;
+                color: $product-header-text-color;
+            }
+            //background text
+            &::before {
+                content: $content-bg-text-content;
+                position: absolute;
+                inset: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $content-bg-text-color;
+                font-weight: $content-bg-text-wight;
+                font-size: $content-bg-text-size;
+                line-height: $content-bg-text-line-height;
+                opacity: $content-bg-text-opacity;
+                z-index: -1;
+            }
         }
     }
     & .footer {
         width: calc($container-width - ($container-padding-x * 2));
         height: $footer-height;
         color: var(--on-surface);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         position: absolute;
         bottom: $container-padding-y;
         left: $container-padding-x;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
         & .footer-navigation {
             display: flex;
             align-items: center;
@@ -220,39 +227,41 @@ body {
             }
         }
     }
-    & .decoration-lines {
-        width: $decoration-line-width;
-        height: $decoration-line-height;
-        background-color: $decoration-line-bg-color;
-        border-radius: $decoration-line-height;
-        position: absolute;
-        &::before,
-        &::after {
-            content: "";
-            height: inherit;
-            border-radius: inherit;
-            position: absolute;
-            bottom: calc($decoration-line-height * -3);
-        }
-        &::before {
-            width: calc($decoration-line-width / 2.5);
-            background-color: $decoration-line-before-bg-color;
-            left: calc($decoration-line-width / 8);
-        }
-        &::after {
-            width: calc($decoration-line-width / 5);
+    & .decorations {
+        & .decoration-lines {
+            width: $decoration-line-width;
+            height: $decoration-line-height;
             background-color: $decoration-line-bg-color;
-            right: 3rem;
-        }
-        &.decoration-line-1 {
-            top: 30%;
-            left: 0;
-            translate: -50%;
-        }
-        &.decoration-line-2 {
-            top: 55%;
-            right: 0;
-            translate: 50%;
+            border-radius: $decoration-line-height;
+            position: absolute;
+            &::before,
+            &::after {
+                content: "";
+                height: inherit;
+                border-radius: inherit;
+                position: absolute;
+                bottom: calc($decoration-line-height * -3);
+            }
+            &::before {
+                width: calc($decoration-line-width / 2.5);
+                background-color: $decoration-line-before-bg-color;
+                left: calc($decoration-line-width / 8);
+            }
+            &::after {
+                width: calc($decoration-line-width / 5);
+                background-color: $decoration-line-bg-color;
+                right: 3rem;
+            }
+            &.decoration-line-1 {
+                top: 30%;
+                left: 0;
+                translate: -25%;
+            }
+            &.decoration-line-2 {
+                top: 58%;
+                right: 0;
+                translate: 20%;
+            }
         }
     }
 }
