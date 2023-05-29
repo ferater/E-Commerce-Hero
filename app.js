@@ -14,11 +14,21 @@ const products = [
   },
 ];
 
+//define index
+let index = 0;
+let currentIndex = 0;
+//select content container
+const mainDiv = document.querySelector("main");
+//select page selector container
+const pageSelectorContainer = document.querySelector(".page-selectors");
+//select prev - next buttons
+const navigationArrows = document.querySelectorAll(".nav-arrow ");
+
 ///////////////////////////////////////////////////////////////////////////////////////////
-const createContent = () => {
-  mainDiv.innerHTML = products
-    .map((product) => {
-      return `
+
+mainDiv.innerHTML = products
+  .map((product) => {
+    return `
     <div class="content">
     <div class="product-image">
     <img src="assets/img/${product.name}.png" alt="product" />
@@ -30,39 +40,18 @@ const createContent = () => {
     </button>
   </div>
     `;
-    })
-    .join("");
-};
-///////////////////////////////////////////////////////////////////////////////////////////
-const createPageSelectors = () => {
-  pageSelectorContainer.innerHTML = products
-    .map((product, index) => {
-      return `<div class="page-selector"></div>`;
-    })
-    .join("");
-};
-///////////////////////////////////////////////////////////////////////////////////////////
-const createHtmlElements = () => {
-  createContent();
-  createPageSelectors();
-};
-window.addEventListener("load", createHtmlElements);
+  })
+  .join("");
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-//define index
-let index = 0;
-let currentIndex = 0;
+///////////////////////////////////////////////////////////////////////////////////////////
+pageSelectorContainer.innerHTML = products
+  .map((product, index) => {
+    return `<div class="page-selector"></div>`;
+  })
+  .join("");
 
-//select content container
-const mainDiv = document.querySelector("main");
-//select prev - next buttons
-const navigationArrows = document.querySelectorAll(".nav-arrow ");
-//select page selector container
-const pageSelectorContainer = document.querySelector(".page-selectors");
-//select page selectors
-const pageSelectors = pageSelectorContainer.querySelectorAll(".page-selector")
-console.log(pageSelectors);
-
+///////////////////////////////////////////////////////////////////////////////////////////
 navigationArrows.forEach((arrow) => {
   arrow.onclick = () => {
     if (arrow.classList.contains("prev-arrow")) {
@@ -72,9 +61,13 @@ navigationArrows.forEach((arrow) => {
       index += 1;
     }
     currentIndex = Math.abs(index % products.length);
-    console.log(currentIndex);
+    slideContent()
   };
 });
-// mainDiv.style.translate = ` ${
-//   currenntIndex * content.scrollWidth * -1
-// }px 0px`;
+function slideContent(){
+  mainDiv.style.translate = `${currentIndex * (100 / products.length) * -1}% 0`
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+//select page selectors
+const pageSelectors = pageSelectorContainer.querySelectorAll(".page-selector");
+console.log(pageSelectors);
