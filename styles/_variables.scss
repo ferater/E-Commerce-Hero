@@ -40,7 +40,7 @@ $login-button-hover-border-color: var(--primary);
 //content
 $content-width: 100%;
 $content-height: 100%;
-$content-padding-top: 8rem;
+$content-padding-top: 1rem;
 //content bg text
 $content-bg-text-content: "AI Mouse";
 $content-bg-text-wight: 400;
@@ -68,7 +68,7 @@ $page-info-active-page-color: var(--primary);
 //page selectors
 $page-selector-width: 1rem;
 $page-selector-circle-space: 0.25rem;
-$page-selector-circle-width: 1px;
+$page-selector-circle-width: 0.0625rem;
 $page-selector-circle-color: var(--on-surface);
 $page-selector-circle-actve-bg-color: var(--primary);
 
@@ -85,4 +85,8 @@ $decoration-line-before-bg-color: var(--primary);
 $button-height: 2.25rem;
 $button-padding-y: 0;
 $button-padding-x: 2.5rem;
+$button-border-width: 0.0625rem;
 $button-border-color: transparent;
+$button-text-weight: 600;
+$button-text-size: 1rem;
+$button-icon-size: 1.5rem;

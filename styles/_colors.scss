@@ -1,7 +1,7 @@
 @function hexToRGB($hex) {
     @return red($hex), green($hex), blue($hex);
 }
-$primary: #94792c;
+$primary: #E78A00;
 $surface: #2b2b2b;
 $on-surface:#ffffff;
 
