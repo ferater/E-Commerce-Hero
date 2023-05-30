@@ -103,7 +103,7 @@ body .container {
 }
 .container main {
   display: flex;
-  transition: translate 0.3s ease-in-out;
+  transition: translate 0.5s cubic-bezier(0.33, 0.14, 0.39, 1.63);
 }
 .container main .content {
   width: 59.5rem;
