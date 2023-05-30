@@ -100,7 +100,7 @@ body {
     }
     & main {
         display: flex;
-        transition: translate 0.3s linear;
+        transition: translate 0.3s ease-in-out;
         & .content {
             width: $content-width;
             height: calc($container-height - $header-height - $footer-height);
