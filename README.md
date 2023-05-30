@@ -17,7 +17,7 @@ git clone https://github.com/ferater/E-Commerce-Hero.git
 cd E-Commerce-Hero
 ```
 ```
-open index.html with any browser
+open index.html with any server
 ```
 
 
