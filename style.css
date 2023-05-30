@@ -14,7 +14,7 @@ a {
 }
 
 body {
-  --primary: #E78A00;
+  --primary: #e78a00;
   --surface: #2b2b2b;
   --on-surface: #ffffff;
 }
@@ -198,32 +198,32 @@ body .container {
   translate: 35% 50%;
   z-index: -1;
 }
-.container .page-selectors {
+.container .page-indicator-container {
   width: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   position: absolute;
   top: 50%;
+  translate: 0 -50%;
   left: 6.25rem;
 }
-.container .page-selectors .page-selector {
+.container .page-indicator-container .page-indicator {
   width: 1rem;
   height: 1rem;
   background-color: transparent;
   border-radius: 50%;
   position: relative;
-  cursor: pointer;
 }
-.container .page-selectors .page-selector::after {
+.container .page-indicator-container .page-indicator::after {
   content: "";
   inset: -0.25rem;
   border: 0.0625rem solid var(--on-surface);
   border-radius: inherit;
   position: absolute;
 }
-.container .page-selectors .page-selector.active {
+.container .page-indicator-container .page-indicator.active {
   background-color: var(--primary);
 }
 .container .decorations .decoration-lines {

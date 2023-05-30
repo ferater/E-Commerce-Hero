@@ -1,9 +1,9 @@
 @function hexToRGB($hex) {
     @return red($hex), green($hex), blue($hex);
 }
-$primary: #E78A00;
+$primary: #e78a00;
 $surface: #2b2b2b;
-$on-surface:#ffffff;
+$on-surface: #ffffff;
 
 body {
     --primary: #{$primary};
