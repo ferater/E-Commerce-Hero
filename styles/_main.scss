@@ -100,7 +100,7 @@ body {
     }
     & main {
         display: flex;
-        transition: translate 0.5s cubic-bezier(0.33, 0.14, 0.39, 1.63);
+        transition: translate 0.5s cubic-bezier(0.33, 0.14, 0.39, 1.3);
         & .content {
             width: $content-width;
             height: calc($container-height - $header-height - $footer-height);
@@ -164,12 +164,12 @@ body {
         & .footer-navigation {
             display: flex;
             align-items: center;
-            & .arrow {
+            & .nav-arrow {
                 font-size: $prev-next-button-icon-size;
-                transition: scale $transition-time ease;
+                transition: scale 0.15s ease;
                 cursor: pointer;
                 &:hover {
-                    scale: 1.35;
+                    scale: 1.2;
                 }
             }
         }
@@ -189,7 +189,8 @@ body {
         height: $right-corner-circle-width;
         background-color: darken($surface, 2);
         border-radius: 50%;
-        box-shadow: 0 0 0 $right-corner-circle-border-width var(--surface),
+        box-shadow:
+            0 0 0 $right-corner-circle-border-width var(--surface),
             0 0 0 calc($right-corner-circle-border-width * 2) lighten($color: $surface, $amount: 1);
         position: absolute;
         right: 0;
@@ -213,13 +214,9 @@ body {
             background-color: transparent;
             border-radius: 50%;
             position: relative;
-            &::after {
-                content: "";
-                inset: calc($page-indicator-circle-space * -1);
-                border: $page-indicator-circle-width solid $page-indicator-circle-color;
-                border-radius: inherit;
-                position: absolute;
-            }
+            outline: $page-indicator-circle-width solid $page-indicator-circle-color;
+            outline-offset: $page-indicator-circle-space;
+            cursor: pointer;
             &.active {
                 background-color: $page-indicator-circle-actve-bg-color;
             }

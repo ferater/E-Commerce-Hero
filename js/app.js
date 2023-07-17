@@ -14,6 +14,7 @@ class Hero {
     this.populateContent();
     this.populatePageIndicators();
     this.slideWithArrows();
+    this.slideWithIndicators();
     //!set first content
     this.slideContent(this.firstProductIndex);
   }
@@ -53,6 +54,17 @@ class Hero {
         } else {
           this.firstProductIndex += 1;
         }
+        this.currentIndex = this.firstProductIndex % this.porductArray.length;
+        this.slideContent(this.currentIndex);
+      };
+    });
+  }
+  //!slide content when clicked indicators
+  slideWithIndicators() {
+    const indicators = this.selectNode(".page-indicator", true);
+    indicators.forEach((indicator, index) => {
+      indicator.onclick = () => {
+        this.firstProductIndex = index;
         this.currentIndex = this.firstProductIndex % this.porductArray.length;
         this.slideContent(this.currentIndex);
       };

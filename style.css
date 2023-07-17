@@ -103,7 +103,7 @@ body .container {
 }
 .container main {
   display: flex;
-  transition: translate 0.5s cubic-bezier(0.33, 0.14, 0.39, 1.63);
+  transition: translate 0.5s cubic-bezier(0.33, 0.14, 0.39, 1.3);
 }
 .container main .content {
   width: 59.5rem;
@@ -171,13 +171,13 @@ body .container {
   display: flex;
   align-items: center;
 }
-.container .footer .footer-navigation .arrow {
+.container .footer .footer-navigation .nav-arrow {
   font-size: 1.5rem;
-  transition: scale 0.2s ease;
+  transition: scale 0.15s ease;
   cursor: pointer;
 }
-.container .footer .footer-navigation .arrow:hover {
-  scale: 1.35;
+.container .footer .footer-navigation .nav-arrow:hover {
+  scale: 1.2;
 }
 .container .footer .page-count span {
   font-weight: 500;
@@ -215,13 +215,9 @@ body .container {
   background-color: transparent;
   border-radius: 50%;
   position: relative;
-}
-.container .page-indicator-container .page-indicator::after {
-  content: "";
-  inset: -0.25rem;
-  border: 0.0625rem solid var(--on-surface);
-  border-radius: inherit;
-  position: absolute;
+  outline: 0.0625rem solid var(--on-surface);
+  outline-offset: 0.25rem;
+  cursor: pointer;
 }
 .container .page-indicator-container .page-indicator.active {
   background-color: var(--primary);
