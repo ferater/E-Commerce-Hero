@@ -8,6 +8,7 @@ class Hero {
     this.pageIndicatorContainer = this.selectNode(".page-indicator-container");
     this.navigationArrows = this.selectNode(".nav-arrow", true);
     this.pageCount = this.selectNode(".page-count");
+    this.autoSwitch = this.selectNode("#switch");
   }
 
   init() {
@@ -15,6 +16,7 @@ class Hero {
     this.populatePageIndicators();
     this.slideWithArrows();
     this.slideWithIndicators();
+    this.autoSlide();
     //!set first content
     this.slideContent(this.firstProductIndex);
   }
@@ -69,6 +71,18 @@ class Hero {
         this.slideContent(this.currentIndex);
       };
     });
+  }
+  //! auto slide
+  autoSlide() {
+    this.autoSwitch.onchange = () => {
+      const abc = setInterval(() => {
+        console.log("object");
+      }, 2000);
+      if (!this.autoSwitch.checked) {
+        console.log("not");
+        clearInterval(abc);
+      }
+    };
   }
   //!slide content & set page number
   slideContent(currentIndex) {
