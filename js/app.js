@@ -19,6 +19,9 @@ class Hero {
     this.slideWithArrows();
     this.slideWithIndicators();
     this.autoSlide();
+    this.slideTimer.onchange = () => {
+      this.updateSlideTime();
+    };
     //!set first content
     this.slideContent(this.firstProductIndex);
   }
@@ -86,9 +89,6 @@ class Hero {
   }
 
   startAutoslide(slideTime) {
-    this.slideTimer.onchange = () => {
-      this.updateSlideTime();
-    };
     if (!this.auto) {
       this.auto = setInterval(() => {
         this.firstProductIndex += 1;
@@ -105,8 +105,10 @@ class Hero {
   }
 
   stopAutoSlide() {
-    clearInterval(this.auto);
-    this.auto = null;
+    if (this.auto) {
+      clearInterval(this.auto);
+      this.auto = null;
+    }
   }
 
   //!slide content & set page number
