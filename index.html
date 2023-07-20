@@ -12,6 +12,19 @@
 </head>
 
 <body>
+  <div class="switch-container">
+    <div class="tooltip">
+      <div>
+        <span>Auto Slide</span>
+        <span class="time">1000 ms</span>
+      </div>
+      <input type="range" min="1000" max="5000" value="1000" class="timer" id="myRange">
+    </div>
+    <label for="switch">
+      <input type="checkbox" name="" id="switch">
+      <div class="auto-switch"></div>
+    </label>
+  </div>
   <div class="container">
     <header class="header">
       <div class="brand">
@@ -45,10 +58,6 @@
           </ul>
         </div>
       </nav>
-      <label for="switch">
-        <input type="checkbox" name="" id="switch">
-        <div class="auto-switch"></div>
-      </label>
     </header>
     <main>
       <!-- populate by js -->

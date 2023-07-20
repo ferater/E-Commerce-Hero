@@ -9,6 +9,8 @@ class Hero {
     this.navigationArrows = this.selectNode(".nav-arrow", true);
     this.pageCount = this.selectNode(".page-count");
     this.autoSwitch = this.selectNode("#switch");
+    this.slideTimer = this.selectNode(".timer");
+    this.auto;
   }
 
   init() {
@@ -75,15 +77,38 @@ class Hero {
   //! auto slide
   autoSlide() {
     this.autoSwitch.onchange = () => {
-      const abc = setInterval(() => {
-        console.log("object");
-      }, 2000);
       if (!this.autoSwitch.checked) {
-        console.log("not");
-        clearInterval(abc);
+        this.stopAutoSlide();
+      } else {
+        this.updateSlideTime();
       }
     };
   }
+
+  startAutoslide(slideTime) {
+    this.slideTimer.onchange = () => {
+      this.updateSlideTime();
+    };
+    if (!this.auto) {
+      this.auto = setInterval(() => {
+        this.firstProductIndex += 1;
+        this.currentIndex = this.firstProductIndex % this.porductArray.length;
+        this.slideContent(this.currentIndex);
+      }, slideTime);
+    }
+  }
+  updateSlideTime() {
+    const time = this.slideTimer.value;
+    this.selectNode(".time").innerText = time + " ms";
+    this.stopAutoSlide();
+    if (this.autoSwitch.checked) this.startAutoslide(time);
+  }
+
+  stopAutoSlide() {
+    clearInterval(this.auto);
+    this.auto = null;
+  }
+
   //!slide content & set page number
   slideContent(currentIndex) {
     this.contentContainer.style.translate = `${

@@ -1,0 +1,14 @@
+$tooltip-width: 10rem;
+$tooltip-height: 3.5rem;
+.tooltip {
+    width: $tooltip-width;
+    height: $tooltip-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    & .timer {
+        width: 90%;
+    }
+}

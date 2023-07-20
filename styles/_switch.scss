@@ -1,38 +1,55 @@
-& label {
-    $switch-width: 3.5rem;
-    $switch-height: 2rem;
-    $switch-bg-color: #fff;
-    $switch-point-width: calc($switch-height - 5px);
-    $switch-point-height: calc($switch-height - 5px);
-    $switch-point-color: red;
-    $switch-point-chechked-color: green;
+.switch-container {
+    width: 12rem;
+    height: 7rem;
+    border: 2px solid red;
+    border-radius: 2rem;
     position: absolute;
-    right: 1rem;
-    & input[type="checkbox"] {
-        display: none;
-        &:checked {
-            & ~ .auto-switch::after {
-                left: calc($switch-width - ($switch-height - 3px));
-                background-color: $switch-point-chechked-color;
+    top: 3rem;
+    right: 2rem;
+    display: flex;
+    justify-content: center;
+    & div span {
+        display: inline-block;
+        height: 1.5rem;
+        color: #fff;
+    }
+    & label {
+        $switch-width: 3.5rem;
+        $switch-height: 2rem;
+        $switch-bg-color: #fff;
+        $switch-point-width: calc($switch-height - 5px);
+        $switch-point-height: calc($switch-height - 5px);
+        $switch-point-color: red;
+        $switch-point-chechked-color: green;
+        position: absolute;
+        bottom: 0.5rem;
+        & input[type="checkbox"] {
+            display: none;
+            &:checked {
+                & ~ .auto-switch::after {
+                    left: calc($switch-width - ($switch-height - 3px));
+                    background-color: $switch-point-chechked-color;
+                }
             }
         }
-    }
-    & .auto-switch {
-        width: $switch-width;
-        height: $switch-height;
-        background-color: $switch-bg-color;
-        border-radius: calc($switch-height / 2);
-        &::after {
-            content: "";
-            width: $switch-point-width;
-            height: $switch-point-height;
-            background-color: $switch-point-color;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 3px;
-            translate: 0 -50%;
-            transition: all 0.3s ease;
+        & .auto-switch {
+            width: $switch-width;
+            height: $switch-height;
+            background-color: $switch-bg-color;
+            border-radius: calc($switch-height / 2);
+            position: relative;
+            &::after {
+                content: "";
+                width: $switch-point-width;
+                height: $switch-point-height;
+                background-color: $switch-point-color;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 3px;
+                translate: 0 -50%;
+                transition: all 0.3s ease;
+            }
         }
     }
 }
