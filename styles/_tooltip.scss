@@ -1,5 +1,3 @@
-$tooltip-width: 10rem;
-$tooltip-height: 3.5rem;
 .tooltip {
     width: $tooltip-width;
     height: $tooltip-height;
@@ -9,6 +7,6 @@ $tooltip-height: 3.5rem;
     display: flex;
     flex-direction: column;
     & .timer {
-        width: 90%;
+        width: $time-slider-width;
     }
 }

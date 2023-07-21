@@ -23,8 +23,9 @@ class Hero {
       this.updateSlideTime();
     };
     //!set first content
-    this.slideContent(this.firstProductIndex);
+    this.slideContent();
   }
+
   //!populate content
   populateContent() {
     this.contentContainer.innerHTML = this.porductArray
@@ -44,12 +45,14 @@ class Hero {
       })
       .join("");
   }
+
   populatePageIndicators() {
     this.pageIndicatorContainer.innerHTML = this.porductArray.map((product) => {
       return `<div class="page-indicator"></div>`;
     });
     this.pageIndicators = this.selectNode(".page-indicator", true);
   }
+
   //!slide content when clicked arrows
   slideWithArrows() {
     this.navigationArrows.forEach((arrow) => {
@@ -61,22 +64,22 @@ class Hero {
         } else {
           this.firstProductIndex += 1;
         }
-        this.currentIndex = this.firstProductIndex % this.porductArray.length;
-        this.slideContent(this.currentIndex);
+        this.slideContent();
       };
     });
   }
+
   //!slide content when clicked indicators
   slideWithIndicators() {
     const indicators = this.selectNode(".page-indicator", true);
     indicators.forEach((indicator, index) => {
       indicator.onclick = () => {
         this.firstProductIndex = index;
-        this.currentIndex = this.firstProductIndex % this.porductArray.length;
-        this.slideContent(this.currentIndex);
+        this.slideContent();
       };
     });
   }
+
   //! auto slide
   autoSlide() {
     this.autoSwitch.onchange = () => {
@@ -88,20 +91,20 @@ class Hero {
     };
   }
 
-  startAutoslide(slideTime) {
-    if (!this.auto) {
-      this.auto = setInterval(() => {
-        this.firstProductIndex += 1;
-        this.currentIndex = this.firstProductIndex % this.porductArray.length;
-        this.slideContent(this.currentIndex);
-      }, slideTime);
-    }
-  }
   updateSlideTime() {
     const time = this.slideTimer.value;
     this.selectNode(".time").innerText = time + " ms";
     this.stopAutoSlide();
     if (this.autoSwitch.checked) this.startAutoslide(time);
+  }
+
+  startAutoslide(slideTime) {
+    if (!this.auto) {
+      this.auto = setInterval(() => {
+        this.firstProductIndex += 1;
+        this.slideContent();
+      }, slideTime);
+    }
   }
 
   stopAutoSlide() {
@@ -112,20 +115,22 @@ class Hero {
   }
 
   //!slide content & set page number
-  slideContent(currentIndex) {
+  slideContent() {
+    this.currentIndex = this.firstProductIndex % this.porductArray.length;
     this.contentContainer.style.translate = `${
-      currentIndex * (100 / this.porductArray.length) * -1
+      this.currentIndex * (100 / this.porductArray.length) * -1
     }% 0px`;
     //!set page number
-    this.pageCount.innerHTML = `<span>${currentIndex + 1}</span>/<span>${
+    this.pageCount.innerHTML = `<span>${this.currentIndex + 1}</span>/<span>${
       this.porductArray.length
     }</span>`;
     this.activateSelected(
       this.pageIndicators,
-      this.pageIndicators[currentIndex],
+      this.pageIndicators[this.currentIndex],
       "active"
     );
   }
+
   //!activate selected element (menu, page selectors etc.)
   activateSelected(array, item, className) {
     array.forEach((element) => {
@@ -136,6 +141,7 @@ class Hero {
       }
     });
   }
+
   //!select node(s)
   selectNode(elementAttr, all) {
     if (all) {

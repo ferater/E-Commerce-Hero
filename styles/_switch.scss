@@ -1,26 +1,19 @@
 .switch-container {
-    width: 12rem;
-    height: 7rem;
-    border: 2px solid red;
-    border-radius: 2rem;
+    width: $switch-container-width;
+    height: $switch-container-height;
+    border: $switch-container-border-width solid $switch-container-border-color;
+    border-radius: $switch-container-border-radius;
     position: absolute;
-    top: 3rem;
-    right: 2rem;
+    top: $switch-container-position-top;
+    right: $switch-container-position-right;
     display: flex;
     justify-content: center;
     & div span {
         display: inline-block;
-        height: 1.5rem;
-        color: #fff;
+        height: $tooltip-text-size;
+        color: $tooltip-text-color;
     }
     & label {
-        $switch-width: 3.5rem;
-        $switch-height: 2rem;
-        $switch-bg-color: #fff;
-        $switch-point-width: calc($switch-height - 5px);
-        $switch-point-height: calc($switch-height - 5px);
-        $switch-point-color: red;
-        $switch-point-chechked-color: green;
         position: absolute;
         bottom: 0.5rem;
         & input[type="checkbox"] {

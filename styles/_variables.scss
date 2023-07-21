@@ -14,6 +14,28 @@ $container-box-shadow: 0px 4px 24px rgba(#000000, 0.5);
 //container before (bottom-right corner circles)
 $right-corner-circle-width: calc($container-width / 3);
 $right-corner-circle-border-width: 2rem;
+//auto slide
+$tooltip-width: 10rem;
+$tooltip-height: 3.5rem;
+$time-slider-width: 90%;
+$switch-container-width: 12rem;
+$switch-container-height: 7rem;
+$switch-container-border-width: 2px;
+$switch-container-border-color: red;
+$switch-container-border-radius: 2rem;
+$switch-container-position-top: 2rem;
+$switch-container-position-right: 2rem;
+//////////////////////////
+$tooltip-text-size: 1.5rem;
+$tooltip-text-color: #fff;
+////////////////////////////
+$switch-width: 3.5rem;
+$switch-height: 2rem;
+$switch-bg-color: #fff;
+$switch-point-width: calc($switch-height - 5px);
+$switch-point-height: calc($switch-height - 5px);
+$switch-point-color: red;
+$switch-point-chechked-color: green;
 //header & menu
 $header-height: 2.5rem;
 //brand
@@ -80,7 +102,7 @@ $decoration-line-width: 19rem;
 $decoration-line-height: 0.75rem;
 $decoration-line-bg-color: lighten(
     $color: $surface,
-    $amount: 15,
+    $amount: 15
 );
 $decoration-line-before-bg-color: var(--primary);
 
